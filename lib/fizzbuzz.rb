@@ -4,17 +4,18 @@ module Fizzbuzz
     self % number == 0
   end
 
-  def fizzbuzz
-    return "please enter a positive integer" if self < 1
-    if divisible_by(15)
-      "fizzbuzz"
-    elsif divisible_by(3)
-      "fizz"
-    elsif divisible_by(5)
-      "buzz"
-    else
-      self
+  def fizzbuzz(fizz=3, buzz=5)
+    fail "please enter a positive integer" if self < 1
+
+    rules = {fizz*buzz => "fizzbuzz",
+            fizz =>"fizz",
+            buzz =>"buzz"}
+
+    rules.each do |key, value|
+      return value if divisible_by key
     end
+
+    self
   end
 
 end
