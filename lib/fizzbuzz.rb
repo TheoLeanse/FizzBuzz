@@ -1,15 +1,16 @@
-# def divisible_by(number, divisor)
-#   number % divisor == 0
-# end
 module Fizzbuzz
+
+  def divisible_by(number)
+    self % number == 0
+  end
 
   def fizzbuzz
     return "please enter a positive integer" if self < 1
-    if self % 3 == 0 and self % 5 == 0
+    if divisible_by(15)
       "fizzbuzz"
-    elsif self % 3 == 0
+    elsif divisible_by(3)
       "fizz"
-    elsif self % 5 == 0
+    elsif divisible_by(5)
       "buzz"
     else
       self
